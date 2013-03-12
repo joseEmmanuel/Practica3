@@ -1,0 +1,28 @@
+utilizando  System ;
+utilizando  System.Collections.Generic ;
+utilizando  System.Linq ;
+utilizando  System.Text ;
+utilizando  System.Collections ;
+
+espacio de nombres  practica3
+{
+   público   clase  Persona
+    {
+       público  string  codigo ;
+       público  string  Nombre ;
+       públicos  cadena  apellidos ;
+       público  string  direccion ;
+       pública  cadena  telefono ;
+       pública  cadena  email ;
+
+       pública  Persona () {
+           este . codigo  =  "" ;
+           este . Nombre  =  "" ;
+           este . direccion  =  "" ;
+           este . telefono  =  "" ;
+           esto . email  =  "" ;
+           este . apellidos  =  "" ;
+
+       }
+    }
+}

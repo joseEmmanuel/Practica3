@@ -1,0 +1,132 @@
+utilizando  System ;
+utilizando  System.Collections.Generic ;
+utilizando  System.Linq ;
+utilizando  System.Text ;
+utilizando  System.Collections ;
+
+espacio de nombres  practica3
+{
+    público  de clase  Programa
+    {
+      privado  Hashtable  tabla ;
+
+		público  Programa () {
+			esto . tabla  =  nuevo  Hashtable ();
+		}
+
+		público  vacío  capturar () {
+			para ( int  i  =  0 ;  i < 4  ; i + +) {
+				Consola . Borrar ();
+				este . capturardatosPersona ( nuevo  Persona ());
+			}
+		}
+
+		privado  vacío  capturardatosPersona ( Persona  persona ) {
+			esto . capturardatos ( persona );
+			esto . agregarPersona ( persona );
+
+		}
+
+		privadas  void  capturardatos ( Persona  persona ) {
+			Consola . WriteLine ( "Datos de la persona" );
+			si ( persona . codigo  ==  "" ) {
+				Consola . WriteLine ( "Dame el Código" );
+				persona . codigo  =  Consola . ReadLine ();
+			}
+
+			Consola . WriteLine ( "Dame tu nombre" );
+			persona . Nombre  =  Consola . ReadLine ();
+            Consola . WriteLine ( "Dame tu apelldo" );
+            persona . apellidos  =  Consola . ReadLine ();
+			Consola . WriteLine ( "Dame tu dirección" );
+			persona . direccion  =  Consola . ReadLine ();
+			Consola . WriteLine ( "Dame tu teléfono" );
+			persona . telefono  =  Consola . ReadLine ();
+			Consola . WriteLine ( "Dame tu email" );
+			persona . email  =  Consola . ReadLine ();
+		}
+
+		privado  vacío  agregarPersona ( Persona  persona ) {			
+			si ( esto . tabla . ContainsKey ( persona . codigo )) {
+				esto . tabla . Retire ( persona . codigo );
+			}
+
+			esto . tabla . Añadir ( persona . codigo , persona );
+		}
+
+		público  void  editar () {
+			para ( int  i  =  0 ;  i  <  2 ,  i + +) {
+				Consola . Borrar ();
+				string  codigo  =  "" ;
+				Consola . WriteLine ( "Dame el Código párr Editar" );
+				codigo  =  Consola . ReadLine ();
+				si ( esto . tabla . ContainsKey ( codigo )) {
+					Persona  persona  =  ( Persona ) este . tabla [ codigo ];
+					esto . imprimePersona ( persona );
+					esto . capturardatosPersona ( persona );
+				}
+                más {
+
+                    este . imprimeError ();
+
+                }
+
+            }
+		}
+
+
+		público  vacío  ELIMINAR () {
+			para ( int  i  =  0 ;  i  <  2 ,  i + +) {
+				Consola . Borrar ();
+				string  codigo  =  "" ;
+				Consola . WriteLine ( "Dame el Código párr eliminar" );
+				codigo  =  Consola . ReadLine ();
+				si ( esto . tabla . ContainsKey ( codigo )) {
+					Persona  persona  =  ( Persona )  este . tabla [ codigo ];
+					esto . imprimePersona ( persona );
+					esto . confirmarEliminacionYEliminar ( persona . codigo );
+				}
+                más {
+					este . imprimeError ();
+				}
+			}
+		}
+
+		privado  vacío  confirmarEliminacionYEliminar ( string  codigo ) {
+			Consola . WriteLine ( "¿Seguro This DESEA ELIMINAR Que?" );
+			Consola . WriteLine ( "0 = No, 1 = Si" );
+			cadena  opcion  =  Consola . ReadLine ();
+			si ( opcion  ! =  "0" ) {
+				esto . tabla . Retire ( codigo );
+			}
+		}
+
+		privado  vacío  imprimeError () {
+			Consola . WriteLine ( "No existe el Código." );
+			Consola . WriteLine ( "Presione Cualquier Tecla, párr Continuar". );
+			Consola . ReadLine ();
+		}
+
+		públicos  vacíos  imprimirTodos () {
+	        ICollection  personajes  =  esto . del tabla . Valores ;
+            Consola . WriteLine ();
+	        foreach (  objeto  interpuesto  en  personajes  )
+	        {
+	            Persona  persona  =  ( Persona )  Objeto ;
+				esto . imprimePersona ( persona );
+	        }
+		}
+
+		privado  vacío  imprimePersona ( Persona  persona ) {
+			Consola . WriteLine ( "Código:"  +  persona . codigo );
+			Consola . WriteLine ( "Nombre:"  +  persona . Nombre );
+			Consola . WriteLine ( "Dirección:"  +  persona . direccion );
+			Consola . WriteLine ( "Teléfono:"  +  persona . telefono );
+			Consola . WriteLine ( "email:"  +  persona . email );
+			Consola . WriteLine ( "" );
+		}
+
+
+
+    }
+}

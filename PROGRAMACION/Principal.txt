@@ -1,0 +1,22 @@
+ System ;
+utilizando  System.Collections.Generic ;
+utilizando  System.Linq ;
+utilizando  System.Text ;
+
+espacio de nombres  practica3
+{
+    clase  Principal
+    {
+        estático  vacío  principal ( string []  args )
+        {
+            Programa  Programa  =  nuevo  Programa ();
+            Programa . capturar ();
+            Consola . Borrar ();
+            Programa . editar ();
+            Consola . Borrar ();
+            Programa . ELIMINAR ();
+            Consola . Borrar ();
+            Programa . imprimirTodos ();
+        }
+    }
+}
